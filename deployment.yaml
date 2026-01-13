@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: secure-app
+  name: eks-app
   namespace: jenkins-test
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: secure-app
+      app: eks-app
   template:
     metadata:
       labels:
-        app: secure-app
+        app: eks-app
     spec:
       containers:
-      - name: secure-app
-        image: john1436gilbert/secure-app:latest
+      - name: eks-app
+        image: john1436gilbert/eks-app:latest
         ports:
         - containerPort: 5000
+
